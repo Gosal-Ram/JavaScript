@@ -627,6 +627,283 @@ document.getElementById('ans2').innerHTML=" Sphere Volume "+( 4*pi*r*r*r )
 }
 
 
+function concatinate(){
+let string_1= document.getElementById('string1').value
+let string_2= document.getElementById('string2').value
+
+document.getElementById('ans').innerHTML="The concatinated string is "+string_1 + " " +string_2
+
+}
+
+function ascii(){
+let char= document.getElementById('char').value
+for (let i=0; i< char.length ; i++){
+let ascii_value=char.charCodeAt(i)
+document.getElementById('ans').innerHTML+="The ASCII value of character "+ i +" is "+ascii_value+"<br>"
+}
+}
+
+
+function byte(){
+let string=""
+let bytes=[72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
+for (let i=0; i< bytes.length ; i++){
+let temp=bytes[i]
+temp=String.fromCharCode(temp)
+string+=temp
+}
+document.getElementById('ans').innerHTML+="The string is "+string
+}
+
+
+function firstChar(){
+
+let string= document.getElementById('string').value
+
+document.getElementById('ans').innerHTML+="The first char is "+string.charAt(0)
+
+}
+
+
+function lastChar(){
+
+let string= document.getElementById('string').value
+let num=string.length-1
+
+document.getElementById('ans').innerHTML+="The last char is "+string.charAt(num)
+
+}
+
+
+
+function middleChar(){
+
+let string= document.getElementById('string').value
+let num=string.length
+let mid=string.length/2
+if(num%2 == 0)
+document.getElementById('ans').innerHTML+="The string doesnot have a perfect middle character "
+else
+document.getElementById('ans').innerHTML+="The middle char is "+string.charAt(mid)
+
+}
+
+
+
+
+function stringChar(){
+
+let string= document.getElementById('string').value
+for (let i=0; i< string.length ; i++)
+
+document.getElementById('ans').innerHTML+=string[i]+", "
+
+}
+
+
+function stringWithLen(){
+let string= document.getElementById('string').value
+let num=string.length
+document.getElementById('ans1').innerHTML=num
+}
+
+
+function stringWithoutLen(){
+let string= document.getElementById('string').value
+let count=0;
+for(let i in string){
+	count ++;
+}
+document.getElementById('ans2').innerHTML= count;
+}
+
+
+
+
+function stringIndex(){
+let string= document.getElementById('string').value
+
+let char= document.getElementById('string2').value
+let index
+for(let i=0;i<string.length;i++){
+if(char==string[i])
+index=i
+}
+document.getElementById('ans').innerHTML= index;
+
+}
+
+
+
+
+function stringOccur(){
+let string= document.getElementById('string').value
+
+let gn_char= document.getElementById('string2').value
+let result={}
+for(let char of string){
+if(char==gn_char){
+ 
+    if (char in result)
+         result[char]++
+    else
+         result[char]=1
+}
+}
+if(Object.keys(result).length==0){
+         console.log(result);
+		document.getElementById('ans').innerHTML= "No occurence";
+           }
+else{
+	for (let key in result){
+	          console.log(result);
+                  document.getElementById('ans').innerHTML= key+" : "+result[key];	
+
+         
+       }
+
+
+}
+}
+
+
+
+
+
+function isSubstringPrefix(){
+
+let string= document.getElementById('string').value
+
+let substring_temp= document.getElementById('substring').value
+console.log(string.substring(0,substring_temp.length))
+if(substring_temp==string.substring(0,substring_temp.length)){
+
+document.getElementById('ans').innerHTML="substring is prefix"
+}
+else
+
+document.getElementById('ans').innerHTML="substring is not prefix"
+
+}
+
+
+
+
+function reverse_case(){
+
+let string= document.getElementById('string').value
+let u_case=string.toUpperCase()
+let l_case=string.toLowerCase()
+let result = "";
+if (string==u_case)
+result=l_case
+
+else
+result=u_case
+
+
+document.getElementById('ans').innerHTML= "The reversed case is "+result;
+
+
+}
+
+
+function substringReplace(){
+
+let string= document.getElementById('string').value
+let substring= document.getElementById('substring').value
+let substring_new= document.getElementById('substring_new').value
+alert(substring_new)
+string=string.replace(substring,substring_new);
+
+document.getElementById('ans').innerHTML= string
+}
+
+
+function vowelReplace(){
+let string= document.getElementById('string').value
+let vowels_string="aeiou"                                        
+let vowels_arr=[]
+let new_string="";
+for(let i=0;i<string.length;i++){
+if( vowels_string.includes(string[i]))
+vowels_arr.unshift(string[i])
+
+}
+for(let i=0;i<string.length;i++){
+	if (vowels_string.includes(string[i])){
+	      new_string+=vowels_arr[0];
+		vowels_arr.shift();
+
+		}
+		else{
+			new_string+=string[i];
+		}
+}
+document.getElementById('ans').innerHTML= new_string
+}
+
+
+function countAtoZ(){
+
+let string= document.getElementById('string').value
+
+let abc=0,num=0,spChar=0
+let pattern_abc=/[a-zA-Z]/
+let pattern_num =/[0-9]/;
+let pattern_spChar=/[-’/`~!#*$@_%+=.,^&(){}[\]|;:”<>?\\]/
+
+
+for(let i=0;i<string.length;i++){
+if(pattern_abc.test(string[i])){
+
+abc++
+
+}
+else if(pattern_spChar.test(string[i])){
+
+spChar++
+
+}
+else if(pattern_num.test(string[i])){
+
+num++
+
+}
+}
+
+
+document.getElementById('ans1').innerHTML= "Count of alphabets ="+abc
+
+document.getElementById('ans2').innerHTML= "Count of numbers ="+num
+
+document.getElementById('ans3').innerHTML= "Count of special characters ="+spChar
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
